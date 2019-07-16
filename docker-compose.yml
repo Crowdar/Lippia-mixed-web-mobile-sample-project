@@ -1,23 +1,48 @@
-version: "3.3"
+# Note: It requires docker-compose 1.13.0
+#
+# Usage: docker-compose up -d
+version: "2.2"
+
 services:
-  selenium-hub:
-    image: selenium/hub:3.141.59-palladium
-    container_name: selenium-hub
-    environment:
-      - GRID_MAX_SESSION=20
-      - GRID_DEBUG=true
-      - GRID_BROWSER_TIMEOUT=3000
-      - GRID_TIMEOUT=3000
+  # Selenium hub
+  selenium_hub:
+    image: selenium/hub:3.14.0-curium
     ports:
-      - "4444:4444"
+      - 4444:4444
+
   chrome:
-    image: selenium/node-chrome:3.141.59-palladium
+    image: selenium/node-chrome-debug:3.141.59-palladium
+    privileged: true
+      # Increase scale number if needed
+    scale: 1
+    depends_on:
+      - selenium_hub
+    ports:
+      - 5900:5900
     volumes:
       - /dev/shm:/dev/shm
-    depends_on:
-      - selenium-hub
     environment:
-      - HUB_HOST=selenium-hub
-      - HUB_PORT=4444
-      - NODE_MAX_INSTANCES=1
-      - NODE_MAX_SESSION=1
+      - HUB_PORT_4444_TCP_ADDR=selenium_hub
+      - HUB_PORT_4444_TCP_PORT=4444
+
+ # Docker-Android for Android application testing
+  samsung_s7_9.0:
+    image: budtmo/docker-android-x86-9.0
+    privileged: true
+    # Increase scale number if needed
+    scale: 1
+    depends_on:
+      - selenium_hub
+      - chrome
+    ports:
+      - 6080:6080
+    # Change path of apk that you want to test. I use sample_apk that I provide in folder "example"
+    volumes:
+      - ./video-samsung_s7_9:/tmp/video
+    environment:
+      - DEVICE=Samsung Galaxy S7
+      - CONNECT_TO_GRID=true
+      - APPIUM=true
+      - SELENIUM_HOST=selenium_hub
+      - MOBILE_WEB_TEST=true
+      - AUTO_RECORD=true
