@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.crowdar</groupId>
+        <artifactId>Crowd-Root-Framework</artifactId>
+        <version>1.6</version>
+    </parent>
+    
+    <artifactId>Lippia-web-example-project</artifactId>
+    <url>http://maven.apache.org</url>
+    <packaging>jar</packaging>
+    <name>Lippia-web-example-project</name>
+    <version>1.0.0</version>
+
+    <properties>
+        <crowd.project.name>Lippia-web-example-project</crowd.project.name>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <cucumber.runner>testng.xml</cucumber.runner>
+        <crowdar.driverHub></crowdar.driverHub>
+        <crowdar.extent.report.path>cucumber-reports</crowdar.extent.report.path>
+        <crowdar.extent.report.name>CucumberExampleReport</crowdar.extent.report.name>
+        <crowdar.extent.host.name>LocalMachine</crowdar.extent.host.name>
+        <crowdar.extent.environment>Local</crowdar.extent.environment>
+        <crowdar.extent.user.name>User.name</crowdar.extent.user.name>
+	
+		<!-- configuration related about strategy to obtain driver -->        
+        <crowdar.setupStrategy>web.SeleniumGridStrategy</crowdar.setupStrategy>
+        <crowdar.driverHub>http://192.168.1.104:4444/wd/hub</crowdar.driverHub>
+     	
+     	<crowdar.deviceName></crowdar.deviceName>
+    </properties>
+    <profiles>
+        <profile>
+            <id>GridSecuencialWeb</id>
+            <activation>
+            </activation>
+            <properties>
+                <cucumber.runner>testng.xml</cucumber.runner>
+                <crowdar.extent.report.path>cucumber-reports</crowdar.extent.report.path>
+                <crowdar.extent.report.name>CucumberExampleReport</crowdar.extent.report.name>
+                <crowdar.extent.host.name>Jenkins</crowdar.extent.host.name>
+                <crowdar.extent.environment>QA</crowdar.extent.environment>
+                <crowdar.extent.user.name>User.name</crowdar.extent.user.name>
+                <crowdar.cucumber.option>src/test/resources/features --glue com/crowdar --glue com/crowdar/core --glue com/crowdar/bdd/cukes --tags ${crowdar.cucumber.filter} --tags ~@Ignore  --plugin com.crowdar.report.CucumberExtentReport</crowdar.cucumber.option>
+                <crowdar.json.path>src/test/resources/json/</crowdar.json.path>
+                
+                <crowdar.projectType>WEB_CHROME</crowdar.projectType>
+        		<crowdar.locatorsProperties>webLocators.properties</crowdar.locatorsProperties>
+        		<crowdar.cucumber.filter>@WEB</crowdar.cucumber.filter>
+        		
+        		<!-- node configuration -->
+        		<crowdar.platformName>LINUX</crowdar.platformName>
+        		<crowdar.browserVersion>75.0.3770.80</crowdar.browserVersion>
+            	
+            </properties>
+        </profile>
+        <profile>
+            <id>GridSecuencialMobile</id>
+            <activation>
+            </activation>
+            <properties>
+                <cucumber.runner>testng.xml</cucumber.runner>
+                <crowdar.extent.report.path>cucumber-reports</crowdar.extent.report.path>
+                <crowdar.extent.report.name>CucumberExampleReport</crowdar.extent.report.name>
+                <crowdar.extent.host.name>Jenkins</crowdar.extent.host.name>
+                <crowdar.extent.environment>QA</crowdar.extent.environment>
+                <crowdar.extent.user.name>User.name</crowdar.extent.user.name>
+                <crowdar.cucumber.option>src/test/resources/features --glue com/crowdar --glue com/crowdar/core --glue com/crowdar/bdd/cukes --tags ${crowdar.cucumber.filter} --tags ~@Ignore  --plugin com.crowdar.report.CucumberExtentReport</crowdar.cucumber.option>
+                <crowdar.json.path>src/test/resources/json/</crowdar.json.path>
+                
+                <crowdar.projectType>MOBILE_ANDROID_CHROME</crowdar.projectType>
+        		<crowdar.locatorsProperties>mobileLocators.properties</crowdar.locatorsProperties>
+				<crowdar.cucumber.filter>@MOBILE</crowdar.cucumber.filter>
+				
+				<!-- node configuration -->
+				<crowdar.platformName>Android</crowdar.platformName>
+				<crowdar.deviceName>samsung_galaxy_s7_9.0</crowdar.deviceName>
+				<crowdar.browserVersion>9.0</crowdar.browserVersion>
+            </properties>
+        </profile>
+        
+    </profiles>
+     <dependencies>
+        <dependency>
+                <groupId>com.crowdar</groupId>
+                <artifactId>Crowd-Core-Framework</artifactId>
+                <version>1.6.3</version>
+        </dependency>
+     </dependencies>
+    <build>
+        <filters>
+            <filter>src/main/resources/cucumber.properties</filter>
+        </filters>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${cucumber.runner}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+	
+    <repositories>
+    	<repository>
+            <id>atlassian-repo</id>
+            <url>https://maven.atlassian.com/content/repositories/atlassian-public/</url>
+        </repository>  
+
+    	<repository>
+            <id>atlassian-pack</id>
+            <url>https://packages.atlassian.com/maven-public/</url>
+        </repository>  
+        
+        
+		<repository>
+			<id>crowdarRepo</id>
+			<name>crowdar-repository</name>
+			<url>http://nexus-v3-repositories.automation.crowdaronline.com/repository/maven-public/</url>
+		</repository>
+	</repositories>
+    
+</project>
