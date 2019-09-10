@@ -49,7 +49,7 @@
             <properties>
                 <!-- configuration related about strategy to obtain driver -->    
                 <crowdar.setupStrategy>web.SeleniumGridStrategy</crowdar.setupStrategy>
-        		<crowdar.driverHub>http://192.168.1.104:4444/wd/hub</crowdar.driverHub>
+        		<crowdar.driverHub>http://localhost:4444/wd/hub</crowdar.driverHub>
                 
                 <crowdar.projectType>WEB_CHROME</crowdar.projectType>
         		<crowdar.locatorsProperties>webLocators.properties</crowdar.locatorsProperties>
@@ -68,7 +68,7 @@
             <properties>
                 <!-- configuration related about strategy to obtain driver -->    
                 <crowdar.setupStrategy>web.SeleniumGridStrategy</crowdar.setupStrategy>
-        		<crowdar.driverHub>http://192.168.1.104:4444/wd/hub</crowdar.driverHub>
+        		<crowdar.driverHub>http://localhost:4444/wd/hub</crowdar.driverHub>
         
                 <crowdar.projectType>MOBILE_ANDROID_CHROME</crowdar.projectType>
         		<crowdar.locatorsProperties>mobileLocators.properties</crowdar.locatorsProperties>
