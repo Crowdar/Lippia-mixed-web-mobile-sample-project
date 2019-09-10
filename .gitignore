@@ -67,3 +67,6 @@ target/
 /.classpath
 /.project
 /.settings
+
+#videos
+video-*

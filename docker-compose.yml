@@ -11,19 +11,29 @@ services:
       - 4444:4444
 
   chrome:
-    image: selenium/node-chrome-debug:3.141.59-palladium
-    privileged: true
-      # Increase scale number if needed
-    scale: 1
+    image: elgalu/selenium:3.141.59-p21
     depends_on:
       - selenium_hub
     ports:
-      - 5900:5900
+      # VNC: See what's going on by connecting your VNC client to 0.0.0.0:5900
+      - 5900:25900
+      # noVNC: See what's going on by hitting http://0.0.0.0:6080 in your browser
+      #        Important: http://127.0.0.1:6080 works but http://localhost:6080 doesn't
+      - 6081:26080
     volumes:
       - /dev/shm:/dev/shm
+    privileged: true
     environment:
-      - HUB_PORT_4444_TCP_ADDR=selenium_hub
-      - HUB_PORT_4444_TCP_PORT=4444
+      - NOVNC=true
+      - SELENIUM_HUB_HOST=selenium_hub
+      - SELENIUM_HUB_PORT=4444
+      - SELENIUM_NODE_HOST={{CONTAINER_IP}}
+      - SCREEN_WIDTH=1300
+      - SCREEN_HEIGHT=999
+      - VIDEO=false
+      - GRID=false
+      - CHROME=true
+      - FIREFOX=false
 
  # Docker-Android for Android application testing
   samsung_s7_9.0:
@@ -33,7 +43,6 @@ services:
     scale: 1
     depends_on:
       - selenium_hub
-      - chrome
     ports:
       - 6080:6080
     # Change path of apk that you want to test. I use sample_apk that I provide in folder "example"
