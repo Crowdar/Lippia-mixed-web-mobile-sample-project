@@ -114,7 +114,7 @@ Chrome desktop node novnc: http://localhost:6081
 
 Emulated Android device novnc: http://localhost:6080
 
-![dockerAndroidNovnc](/docs/img/dockerAndroidNovnc.png)
+![dockerAndroidNovnc](/docs/img/dockeAndroidNovnc.png)
 
 ***
 
