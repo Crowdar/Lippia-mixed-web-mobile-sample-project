@@ -1,5 +1,6 @@
-# Lippia Web sample project
+# Lippia Web/Mobile sample project
 
+To execute the same tests under desktop/android Chrome browser
 This project has the intention of show in a practical way how to use Lippia Automation Framework to build automated tests using Gherkin and Page-Object pattern. This sample project includes the required components as binaries, docker containers and configuration files to simply download and run a set of sample tests in your local computer, using the Lippia container stack described bellow.
 
 ***
@@ -10,7 +11,7 @@ This project has the intention of show in a practical way how to use Lippia Auto
 The following project includes the basic Docker Lippia Containers to run this  web sample project. You can choose to run the code from your favourite IDE, run from console or from Jenkins using the Docker Stack.
 To install and start a local instalation with Docker containers go to **Getting started** at the end of this guide. 
 
-![Lippia Extent Report](mixed_architecture.png)
+![Lippia Extent Report](/docs/img/mixed_architecture.png)
 
 ## Project structure
 
@@ -153,7 +154,7 @@ The Test Scenarios can be written using BDD metodology. This project includes Cu
 ```
 Feature: As a potential client i need to search in google to find a web site
 
-  @WEB @MOBILE @@Smoke
+  @WEB @MOBILE @Smoke
   Scenario: The client search by "crowdar"
     Given The client is in google page
     When The client search for word crowdar
@@ -178,7 +179,7 @@ Feature: As a potential client i need to search in google to find a web site
     Then The client verify that results are shown properly
 ```   
    
-	``` With the @web @mobile tags you can define in which context the test is run. one or both can be defined.
+> With the @WEB @MOBILE tags you can define in which context the test is run. One or both can be defined.
 
 ### Reports 
 
