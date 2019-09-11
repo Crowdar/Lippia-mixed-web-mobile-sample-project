@@ -28,12 +28,67 @@ To start the containers, simply run the following command from terminal:
 ```
 $ sudo docker-compose up
 ```
-
-
  > This command, will start download the images needed to build all the containers and start them. It takes a while to download the images depending on your internet connection.
 
-![docker-compose](/docs/img/docker-compose-up.png)
-
+```
+Starting lippia-mixed-web-mobile-sample-project_selenium_hub_1 ... done
+Starting lippia-mixed-web-mobile-sample-project_chrome_1         ... done
+Starting lippia-mixed-web-mobile-sample-project_samsung_s7_9.0_1 ... done
+Attaching to lippia-mixed-web-mobile-sample-project_selenium_hub_1, lippia-mixed-web-mobile-sample-project_samsung_s7_9.0_1, lippia-mixed-web-mobile-sample-project_chrome_1
+selenium_hub_1    | starting selenium hub with configuration:
+selenium_hub_1    | {
+selenium_hub_1    |   "host": "0.0.0.0",
+selenium_hub_1    |   "port": 4444,
+selenium_hub_1    |   "role": "hub",
+selenium_hub_1    |   "maxSession": 5,
+selenium_hub_1    |   "newSessionWaitTimeout": -1,
+selenium_hub_1    |   "capabilityMatcher": "org.openqa.grid.internal.utils.DefaultCapabilityMatcher",
+selenium_hub_1    |   "throwOnCapabilityNotPresent": true,
+selenium_hub_1    |   "jettyMaxThreads": -1,
+selenium_hub_1    |   "cleanUpCycle": 5000,
+selenium_hub_1    |   "browserTimeout": 0,
+selenium_hub_1    |   "timeout": 30,
+selenium_hub_1    |   "debug": false
+selenium_hub_1    | }
+samsung_s7_9.0_1  | 2019-09-11 11:29:42,852 CRIT Supervisor running as root (no user in config file)
+samsung_s7_9.0_1  | 2019-09-11 11:29:42,877 INFO supervisord started with pid 6
+selenium_hub_1    | 18:29:42.888 INFO [GridLauncherV3.launch] - Selenium build info: version: '3.14.0', revision: 'aacccce0'
+selenium_hub_1    | 18:29:42.921 INFO [GridLauncherV3$2.launch] - Launching Selenium Grid hub on port 4444
+chrome_1          | --LOG 20:29:43:273177304 Stopping supervisord to support docker restart...
+samsung_s7_9.0_1  | 2019-09-11 11:29:43,879 INFO spawned: 'xvfb' with pid 22
+samsung_s7_9.0_1  | 2019-09-11 11:29:43,917 INFO spawned: 'port-forward' with pid 24
+samsung_s7_9.0_1  | 2019-09-11 11:29:44,030 INFO spawned: 'novnc' with pid 25
+samsung_s7_9.0_1  | 2019-09-11 11:29:44,035 INFO spawned: 'openbox' with pid 26
+samsung_s7_9.0_1  | 2019-09-11 11:29:44,041 INFO spawned: 'x11vnc' with pid 27
+samsung_s7_9.0_1  | 2019-09-11 11:29:44,050 INFO spawned: 'android-screen-mirror' with pid 28
+samsung_s7_9.0_1  | 2019-09-11 11:29:44,057 INFO spawned: 'docker-appium' with pid 29
+samsung_s7_9.0_1  | 2019-09-11 11:29:44,072 INFO spawned: 'auto-recording' with pid 31
+samsung_s7_9.0_1  | 2019-09-11 11:29:44,077 INFO spawned: 'adb-utils' with pid 32
+selenium_hub_1    | 2019-09-11 18:29:44.106:INFO::main: Logging initialized @6862ms to org.seleniumhq.jetty9.util.log.StdErrLog
+samsung_s7_9.0_1  | 2019-09-11 11:29:44,664 INFO success: android-screen-mirror entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+samsung_s7_9.0_1  | 2019-09-11 11:29:44,665 INFO exited: android-screen-mirror (exit status 0; expected)
+samsung_s7_9.0_1  | 2019-09-11 11:29:45,401 INFO success: xvfb entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+samsung_s7_9.0_1  | 2019-09-11 11:29:45,402 INFO success: port-forward entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+samsung_s7_9.0_1  | 2019-09-11 11:29:45,402 INFO success: novnc entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+samsung_s7_9.0_1  | 2019-09-11 11:29:45,402 INFO success: openbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+samsung_s7_9.0_1  | 2019-09-11 11:29:45,402 INFO success: x11vnc entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+samsung_s7_9.0_1  | 2019-09-11 11:29:45,402 INFO success: docker-appium entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+samsung_s7_9.0_1  | 2019-09-11 11:29:45,402 INFO success: auto-recording entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+samsung_s7_9.0_1  | 2019-09-11 11:29:45,402 INFO success: adb-utils entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+samsung_s7_9.0_1  | 2019-09-11 11:29:45,403 INFO exited: xvfb (exit status 1; not expected)
+samsung_s7_9.0_1  | 2019-09-11 11:29:45,407 INFO spawned: 'xvfb' with pid 67
+samsung_s7_9.0_1  | 2019-09-11 11:29:46,834 INFO success: xvfb entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+selenium_hub_1    | 18:29:47.235 INFO [Hub.start] - Selenium Grid hub is up and running
+selenium_hub_1    | 18:29:47.238 INFO [Hub.start] - Nodes should register to http://172.26.0.2:4444/grid/register/
+selenium_hub_1    | 18:29:47.239 INFO [Hub.start] - Clients should connect to http://172.26.0.2:4444/wd/hub
+chrome_1          | -- INFO: Docker Img. Version: 3.141.59-317
+chrome_1          | -- INFO: Chrome..... Version: 76.0.3809.132
+chrome_1          | -- INFO: Firefox.... Version: 69.0
+chrome_1          | -- INFO: Using Selenium.....: 3.141.59
+chrome_1          | -- WARN: wait-xvfb.sh failed! for DISPLAY=:78
+chrome_1          | -- WARN: DISPLAY=:78 is taken, searching for another...
+chrome_1          | -- INFO: Possible free DISPLAY=:58
+```
 
 After that you you can check the containers are up and running executing the following command
 `$ sudo docker ps `.
@@ -83,7 +138,7 @@ mvn clean tests -PGridSecuencialMobile
 ### Reports
 you can view this report by accesing to:
 
-- `[WORKSPACE_LOCATION]//lippia-mixed-web-mobile-sample-project/target/cucumber-report/example.html`
+- `[WORKSPACE_LOCATION]/lippia-mixed-web-mobile-sample-project/target/cucumber-report/example.html`
 > "With each job build the report file will be replaced"
 
 ![Lippia Extent Report](/docs/img/reporteExtent.png)
