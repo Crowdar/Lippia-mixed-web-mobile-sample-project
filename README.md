@@ -194,8 +194,5 @@ You just need to open it and navigate for all the report page to earn the much i
 
 # Getting started
     
-- If you are Linux user 
+- Mobile emulated solution is only available for Linux user 
     [`Getting started - Linux User`](docs/README_Linux.md)
-- If you are Windws user
-    [`Getting started - Windows User`](docs/README_Windows.md)
-	
