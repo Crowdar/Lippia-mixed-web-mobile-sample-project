@@ -3,6 +3,7 @@ package com.crowdar.examples.pages;
 import java.util.function.Function;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,7 +40,7 @@ public class GoogleHomePage extends PageBaseGoogle{
     }
 
     public void clickSearchButton(){
-        googleSearchBtn().click();
+        googleInput().sendKeys(Keys.ENTER);
     }
 
 }

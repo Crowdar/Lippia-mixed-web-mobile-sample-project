@@ -5,7 +5,7 @@
        <artifactId>root</artifactId>
        <version>1.6.6</version>
     </parent>
-    
+
     <name>Lippia-Mixed-webmobile-sample-project</name>
     <url>http://maven.apache.org</url>
     <packaging>jar</packaging>
@@ -13,6 +13,10 @@
     <version>1.0.0</version>
 
     <properties>
+
+      <timestamp>${maven.build.timestamp}</timestamp>
+      <maven.build.timestamp.format>yyyy-MM-dd-HH_mm</maven.build.timestamp.format>
+
         <crowd.project.name>Lippia-mobileweb-sample-project</crowd.project.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cucumber.runner>testng.xml</cucumber.runner>
@@ -22,24 +26,24 @@
         <crowdar.extent.user.name>User.name</crowdar.extent.user.name>
         <crowdar.extent.environment>QA</crowdar.extent.environment>
         <crowdar.extent.host.name>User</crowdar.extent.host.name>
-	
+
 	 	<crowdar.cucumber.option>src/test/resources/features --glue com/crowdar --glue com/crowdar/core --glue com/crowdar/bdd/cukes --tags ${crowdar.cucumber.filter} --tags ~@Ignore  --plugin com.crowdar.report.CucumberExtentReport</crowdar.cucumber.option>
 	 	<crowdar.json.path>src/test/resources/json/</crowdar.json.path>
-	 
+
 	 	<!-- ### default configuration Local Secuencia Web -->
-	 	
-	    <!-- configuration related about strategy to obtain driver -->    
+
+	    <!-- configuration related about strategy to obtain driver -->
         <crowdar.setupStrategy>web.DownloadLatestStrategy</crowdar.setupStrategy>
         <crowdar.driverHub></crowdar.driverHub>
-        
+
         <crowdar.projectType>WEB_CHROME</crowdar.projectType>
 		<crowdar.locatorsProperties>webLocators.properties</crowdar.locatorsProperties>
 		<crowdar.cucumber.filter>@WEB</crowdar.cucumber.filter>
-		
+
 		<!-- node configuration -->
 		<crowdar.platformName>LINUX</crowdar.platformName>
 		<crowdar.browserVersion></crowdar.browserVersion>
-     	
+
     </properties>
     <profiles>
         <profile>
@@ -47,18 +51,18 @@
             <activation>
             </activation>
             <properties>
-                <!-- configuration related about strategy to obtain driver -->    
+                <!-- configuration related about strategy to obtain driver -->
                 <crowdar.setupStrategy>web.SeleniumGridStrategy</crowdar.setupStrategy>
         		<crowdar.driverHub>http://localhost:4444/wd/hub</crowdar.driverHub>
-                
+
                 <crowdar.projectType>WEB_CHROME</crowdar.projectType>
         		<crowdar.locatorsProperties>webLocators.properties</crowdar.locatorsProperties>
         		<crowdar.cucumber.filter>@WEB</crowdar.cucumber.filter>
-        		
+
         		<!-- node configuration -->
         		<crowdar.platformName>LINUX</crowdar.platformName>
         		<crowdar.browserVersion>76.0.3809.132</crowdar.browserVersion>
-            	
+
             </properties>
         </profile>
         <profile>
@@ -66,21 +70,21 @@
             <activation>
             </activation>
             <properties>
-                <!-- configuration related about strategy to obtain driver -->    
+                <!-- configuration related about strategy to obtain driver -->
                 <crowdar.setupStrategy>web.SeleniumGridStrategy</crowdar.setupStrategy>
         		<crowdar.driverHub>http://localhost:4444/wd/hub</crowdar.driverHub>
-        
+
                 <crowdar.projectType>MOBILE_ANDROID_CHROME</crowdar.projectType>
         		<crowdar.locatorsProperties>mobileLocators.properties</crowdar.locatorsProperties>
 				<crowdar.cucumber.filter>@MOBILE</crowdar.cucumber.filter>
-				
+
 				<!-- node configuration -->
 				<crowdar.platformName>Android</crowdar.platformName>
 				<crowdar.deviceName>samsung_galaxy_s7_9.0</crowdar.deviceName>
 				<crowdar.browserVersion>9.0</crowdar.browserVersion>
             </properties>
         </profile>
-        
+
     </profiles>
      <dependencies>
         <dependency>
@@ -106,7 +110,7 @@
             </plugin>
         </plugins>
     </build>
-	
+
 	  <repositories>
 		<repository>
 			<id>crowdarRepo</id>
@@ -114,5 +118,5 @@
 			<url>http://nexus-v3-repositories.automation.crowdaronline.com/repository/maven-public/</url>
 		</repository>
 	</repositories>
-    
+
 </project>

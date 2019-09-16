@@ -17,9 +17,9 @@ Feature: As a potential client i need to search in google to find a web site
     Given The client is in google page
     When The client search for word docker
     Then The client verify that results are shown properly
-	
+
   @WEB @MOBILE @Smoke
-  Scenario: The client search by "vagrant"
+  Scenario: The client search by "docker"
     Given The client is in google page
     When The client search for word vagrant
-    Then The client verify that results are shown properly
+    Then The client verify that results are shown properly	
