@@ -138,7 +138,7 @@ mvn clean test -PGridSecuencialMobile
 ### Reports
 you can view this report by accesing to:
 
--- `[WORKSPACE_LOCATION]/lippia-mixed-web-mobile-sample-project/target/cucumber-report/example.html`
--> "With each job build the report file will be replaced"
+- `[WORKSPACE_LOCATION]/lippia-mixed-web-mobile-sample-project/target/cucumber-report/example.html`
+> "With each job build the report file will be replaced"
 
 ![Lippia Extent Report](/docs/img/reporteExtent.png)
