@@ -13,10 +13,9 @@
     <version>1.0.0</version>
 
     <properties>
-
-      <timestamp>${maven.build.timestamp}</timestamp>
-      <maven.build.timestamp.format>yyyy-MM-dd-HH_mm</maven.build.timestamp.format>
-
+    	<timestamp>${maven.build.timestamp}</timestamp>
+      	<maven.build.timestamp.format>yyyy-MM-dd-HH_mm</maven.build.timestamp.format>
+    
         <crowd.project.name>Lippia-mobileweb-sample-project</crowd.project.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cucumber.runner>testng.xml</cucumber.runner>
@@ -98,6 +97,7 @@
             <filter>src/main/resources/cucumber.properties</filter>
         </filters>
         <plugins>
+        
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
