@@ -123,13 +123,13 @@ Now you be able to consume the solution and start running tests.
 
 To run tests over "WEB" context you need to execute the following command
 ```
- mvn clean tests -PGridSecuencialWeb
+ mvn clean test -PGridSecuencialWeb
 ```
 > You can verify the behavior by accessing http://localhost:6081
 
 To run tests over "MOBILE" context you must be execute
 ```
-mvn clean tests -PGridSecuencialMobile
+mvn clean test -PGridSecuencialMobile
 ```
 > You can verify the behavior by accessing http://localhost:6080
 
@@ -138,7 +138,8 @@ mvn clean tests -PGridSecuencialMobile
 ### Reports
 you can view this report by accesing to:
 
-- `[WORKSPACE_LOCATION]/lippia-mixed-web-mobile-sample-project/target/cucumber-report/example.html`
-> "With each job build the report file will be replaced"
+you can view reports listing by accesing to:
+
+- `http://localhost:8081`
 
 ![Lippia Extent Report](/docs/img/reporteExtent.png)
