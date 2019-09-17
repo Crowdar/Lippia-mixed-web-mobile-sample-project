@@ -35,8 +35,8 @@ services:
       - CHROME=true
       - FIREFOX=false
 
- # Docker-Android for Android application testing
-   samsung_s7_9.0:
+  # Docker-Android for Android application testing
+  samsung_s7_9.0:
      image: budtmo/docker-android-x86-9.0
      privileged: true
       Increase scale number if needed
