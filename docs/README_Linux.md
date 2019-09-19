@@ -1,4 +1,4 @@
-## Lippia Web sample project - Linux users
+## Lippia Mixed chrome desktop/mobile sample project - Linux users
 
 ## System Requirements :
 + JDK 8: https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html   
