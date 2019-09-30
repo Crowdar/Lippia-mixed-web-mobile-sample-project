@@ -39,13 +39,13 @@ services:
   samsung_s7_9.0:
      image: budtmo/docker-android-x86-9.0
      privileged: true
-      Increase scale number if needed
+      #Increase scale number if needed
      scale: 1
      depends_on:
        - selenium_hub-mixed_sample
      ports:
        - 6080:6080
-      Change path of apk that you want to test. I use sample_apk that I provide in folder "example"
+      #Change path of apk that you want to test. I use sample_apk that I provide in folder "example"
      volumes:
        - ./video-samsung_s7_9:/tmp/video
      environment:
