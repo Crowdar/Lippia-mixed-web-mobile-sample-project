@@ -5,10 +5,9 @@ import java.util.function.Function;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import com.crowdar.bdd.cukes.SharedDriver;
 import com.crowdar.core.LocatorManager;
 
 public class GoogleHomePage extends PageBaseGoogle{
@@ -16,13 +15,13 @@ public class GoogleHomePage extends PageBaseGoogle{
     private RemoteWebElement googleInput(){return (RemoteWebElement)getWait().until((Function<? super WebDriver, ? extends Object>) ExpectedConditions.presenceOfElementLocated(By.xpath(LocatorManager.getProperty("googleHome.searchInput.xpath"))));}
     private RemoteWebElement googleSearchBtn(){return (RemoteWebElement)getWait().until((Function<? super WebDriver, ? extends Object>) ExpectedConditions.presenceOfElementLocated(By.xpath(LocatorManager.getProperty("googleHome.searchButton.xpath"))));}
 
-    public GoogleHomePage(SharedDriver driver){
+    public GoogleHomePage(RemoteWebDriver driver){
         super(driver);
         this.url = ""; //here you can define the custom paths For example:"/search" --> www.googe.com/search
     }
 
     public void go(){
-        navigateToIt();
+        getDriver().navigate().to(BASE_URL);
         try {
 			Thread.sleep(1000l);
 		} catch (InterruptedException e) {
