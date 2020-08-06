@@ -1,6 +1,6 @@
-import com.crowdar.bdd.cukes.TestNgRunner;
+import com.crowdar.bdd.cukes.TestNGSecuencialRunner;
 
-public class CrowdTestNgRunner extends TestNgRunner {
+public class CrowdTestNgRunner extends TestNGSecuencialRunner {
 
 
 }

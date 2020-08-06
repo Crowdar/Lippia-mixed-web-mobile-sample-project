@@ -1,22 +1,21 @@
 package com.crowdar.examples.steps;
 
+import io.cucumber.java.en.*;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 
-import com.crowdar.bdd.cukes.SharedDriver;
 import com.crowdar.core.PageSteps;
 import com.crowdar.examples.pages.GoogleHomePage;
 import com.crowdar.examples.pages.GoogleSearchResultPage;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
 
 public class GoogleSteps extends PageSteps {
 
     private GoogleHomePage homePage;
     private GoogleSearchResultPage searchResultPage;
 
-    public GoogleSteps(SharedDriver driver){
+    public GoogleSteps(RemoteWebDriver driver){
         super(driver);
         homePage = new GoogleHomePage(driver);
         searchResultPage= new GoogleSearchResultPage(driver);

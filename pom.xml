@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-       <groupId>com.crowdar.lippia</groupId>
-       <artifactId>root</artifactId>
-       <version>1.6.6</version>
+        <groupId>com.crowdar.lippia</groupId>
+        <artifactId>root</artifactId>
+        <version>3.1.0</version>
     </parent>
 
     <name>Lippia-Mixed-webmobile-sample-project</name>
@@ -25,8 +25,8 @@
         <crowdar.extent.user.name>User.name</crowdar.extent.user.name>
         <crowdar.extent.environment>QA</crowdar.extent.environment>
         <crowdar.extent.host.name>User</crowdar.extent.host.name>
-
-	 	<crowdar.cucumber.option>src/test/resources/features --glue com/crowdar --glue com/crowdar/core --glue com/crowdar/bdd/cukes --tags ${crowdar.cucumber.filter} --tags ~@Ignore  --plugin com.crowdar.report.CucumberExtentReport</crowdar.cucumber.option>
+        <crowdar.driver.capabilities.json_path>src/main/resources/browsers/chromeCapabilities.json</crowdar.driver.capabilities.json_path>
+	 	<crowdar.cucumber.option>src/test/resources/features --glue com/crowdar --glue com/crowdar/core --glue com/crowdar/bdd/cukes --tags ${crowdar.cucumber.filter} --tags ~@Ignore  --plugin com.crowdar.examples.report.CucumberReporter: </crowdar.cucumber.option>
 	 	<crowdar.json.path>src/test/resources/json/</crowdar.json.path>
 
 	 	<!-- ### default configuration Local Secuencia Web -->
@@ -86,11 +86,16 @@
 
     </profiles>
      <dependencies>
-        <dependency>
-                <groupId>com.crowdar.lippia</groupId>
-                <artifactId>core</artifactId>
-                <version>1.6.6</version>
-        </dependency>
+         <dependency>
+             <groupId>com.crowdar.lippia</groupId>
+             <artifactId>core</artifactId>
+             <version>3.1.0</version>
+         </dependency>
+         <dependency>
+             <groupId>io.lippia.report</groupId>
+             <artifactId>extentreports-cucumber4-adapter</artifactId>
+             <version>1.1.0.10</version>
+         </dependency>
      </dependencies>
     <build>
         <filters>
@@ -115,7 +120,7 @@
 		<repository>
 			<id>crowdarRepo</id>
 			<name>crowdar-repository</name>
-			<url>http://nexus-v3-repositories.automation.crowdaronline.com/repository/maven-public/</url>
+			<url>https://nexus-v3-repositories.automation.crowdaronline.com/repository/maven-public/</url>
 		</repository>
 	</repositories>
 
